@@ -1,0 +1,72 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: silver;
+}
+
+/* h1, p { */
+.text-style {
+  color: #1770a1;
+  text-align: center;
+}
+
+p {
+  border: 2px solid #1770a1;
+  background-color: white;
+  padding: 20px 20px;
+  width: max-content;
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 5px 10px;
+}
+
+#messages {
+  background: white;
+  border-radius: 20px;
+  width: 600px;
+  height: 400px;
+  padding: 10px;
+  overflow: scroll;
+}
+
+input {
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 10px;
+  float: right;
+}
+
+.chat {
+  display: inline-block;
+}
+
+#container {
+  margin: auto;
+  width: max-content;
+}
+
+.user-message{
+  width: max-content;
+  margin-left: auto;
+  margin-top:10px;
+  margin-bottom:10px;
+  background: #1770a1;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+}
+
+.bot-message{
+  width: max-content;
+  margin-right: auto;
+  margin-top:10px;
+  margin-bottom:10px;
+  background: #7cc5ed;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+}
