@@ -25,7 +25,6 @@ function getInputValue(event) {
 function addUserEntry(input) {
   let userMessageDiv = document.createElement("div");
   userMessageDiv.className = "user-message"
-  // userMessageDiv.id = "user-message"
   userMessageDiv.innerText = input;
   messagesContainer.appendChild(userMessageDiv);
 }
@@ -41,20 +40,20 @@ function talkAboutHobbies() {
   let option
   do {
     printMenu()
-    console.log('Alege optiunea: ')
+    console.log('Choose option: ')
     option = scanner.questionInt()
     performSelectedAction(option)
   } while (option != 5)
 }
 
 function getMenuString() {
-  let menu='Salutare, eu sunt asistentul tau. Cu ce te pot ajuta?'+
-  '\n1. Adauga hobby'+
-  '\n2. Cat costa un hobby'+
-  '\n3. Care este cel mai ieftin hobby'+
-  '\n4. Stergere hobby'+
-  '\n5. Recomanda un hobby pt azi'+
-  '\n6. Gata cu hobby-urile';
+  let menu='Hi there, I am your assistant. How can I help you?'+
+  '\n1. Add hobby'+
+  '\n2. How much is a hobby'+
+  '\n3. Which is the cheapest hobby'+
+  '\n4. Erase hobby'+
+  '\n5. Recommend a hobby for today'+
+  '\n6. No more hobbies';
   return menu;
 }
 
@@ -67,7 +66,7 @@ function handleOption1(input) {
     price: hobbyPrice
   }
   addHobby(hobby)
-  addBotEntry("Hobby-urile tale sunt: "+JSON.stringify(hobbies))
+  addBotEntry("Your hobbies are: "+JSON.stringify(hobbies))
 }
 
 function addHobby(hobby) {
@@ -76,10 +75,8 @@ function addHobby(hobby) {
 }
 
 function handleOption2(hobbyName) {
-  // console.log('Introdu numele hobby-ului:')
-  // let hobbyName = scanner.question();
   let price = getHobbyPrice(hobbyName);
-  addBotEntry('Pretul este: ' + price);
+  addBotEntry('Price is: ' + price);
 }
 
 function getHobbyPrice(hobbyName) {
@@ -99,11 +96,11 @@ function handleOption3() {
       index = i;
     }
   }
-  console.log('Cel mai ieftin hobby este:', hobbies[index].name);
+  console.log('The cheapest hobby is:', hobbies[index].name);
 }
 
 function handleOption4() {
-  console.log('Introdu numele:');
+  console.log('Write name:');
   let hobbyName = scanner.question();
   let index;
   for (let i = 0; i < hobbies.length; i++) {
@@ -120,7 +117,7 @@ function handleOption4() {
 
 function handleOption5() {
   let index = Math.floor(Math.random() * hobbies.length);
-  console.log('Poti sa exersezi hobby-ul ' + hobbies[index].name);
+  console.log('You can practice:' + hobbies[index].name);
 }
 
 function performSelectedAction(input) {
@@ -146,9 +143,9 @@ function performSelectedAction(input) {
       handleOption5()
       break
     case 6:
-      console.log('Multumesc pt intrebari. Pe data viitoare')
+      console.log('Thanks for your question. Come back again')
       break
     default:
-      console.log('Alege optiunea intre 1-5')
+      console.log('Choose option 1-5')
   }
 }
