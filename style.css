@@ -37,7 +37,6 @@ input {
   border-radius: 20px;
   padding: 20px;
   margin-top: 10px;
-  float: right;
 }
 
 .chat {
@@ -49,7 +48,7 @@ input {
   width: max-content;
 }
 
-.user-message{
+.user-messages{
   width: max-content;
   margin-left: auto;
   margin-top:10px;
@@ -60,7 +59,7 @@ input {
   color: white;
 }
 
-.bot-message{
+.bot-messages{
   width: max-content;
   margin-right: auto;
   margin-top:10px;

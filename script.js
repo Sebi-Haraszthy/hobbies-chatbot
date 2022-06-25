@@ -20,14 +20,14 @@ function getInputValue(event) {
 
 function addUserEntry(input) {
   let userMessageDiv = document.createElement("div");
-  userMessageDiv.className = "user-message"
+  userMessageDiv.className = "user-messages"
   userMessageDiv.innerText = input;
   messagesContainer.appendChild(userMessageDiv);
 }
 
 function addBotEntry(input) {
   let botMessageDiv = document.createElement("div")
-  botMessageDiv.className = "bot-message";
+  botMessageDiv.className = "bot-messages";
   botMessageDiv.innerText = input;
   messagesContainer.appendChild(botMessageDiv);
 }
@@ -43,6 +43,34 @@ function getMenuString() {
   return menu;
 }
 
+function performSelectedAction(input) {
+  let optionDetails = input.split(":")
+  let option = optionDetails[0]
+  let hobbyDetails = optionDetails[1]
+  switch (Number(option)) {
+    case 1:
+      handleOption1(hobbyDetails)
+      break
+    case 2:
+      handleOption2(hobbyDetails)
+      break
+    case 3:
+      handleOption3()
+      break
+    case 4:
+      handleOption4(hobbyDetails)
+      break
+    case 5:
+      handleOption5()
+      break
+    case 6:
+      console.log('Thanks for your questions. Come back again')
+      break
+    default:
+      console.log('Choose option 1-5')
+  }
+}
+
 function handleOption1(input) {
   let hobbyDetails = input.split(",")
   let hobbyName = hobbyDetails[0]
@@ -52,7 +80,7 @@ function handleOption1(input) {
     price: hobbyPrice
   }
   addHobby(hobby)
-  addBotEntry("Your hobbies are: " + JSON.stringify(hobbies))
+  addBotEntry('Your hobbies are: ' + JSON.stringify(hobbies))
 }
 
 function addHobby(hobby) {
@@ -73,7 +101,7 @@ function getHobbyPrice(hobbyName) {
   }
 }
 
-function handleOption3() {
+function handleOption3(input) {
   let min = hobbies[0].price;
   let index = 0;
   for (let i = 1; i < hobbies.length; i++) {
@@ -82,12 +110,10 @@ function handleOption3() {
       index = i;
     }
   }
-  console.log('The cheapest hobby is:', hobbies[index].name);
+  addBotEntry('The cheapest hobby is: ' + hobbies[index].name + ' ' + hobbies[index].price);
 }
 
-function handleOption4() {
-  console.log('Write name:');
-  let hobbyName = scanner.question();
+function handleOption4(hobbyName) {
   let index;
   for (let i = 0; i < hobbies.length; i++) {
     if (hobbyName == hobbies[i].name) {
@@ -97,39 +123,11 @@ function handleOption4() {
   for (let i = index; i < hobbies.length; i++) {
     hobbies[i] = hobbies[i + 1];
   }
-  hobbyNumber--;
-  console.log(hobbies);
+  hobbies.length--;
+  addBotEntry(JSON.stringify(hobbies));
 }
 
 function handleOption5() {
   let index = Math.floor(Math.random() * hobbies.length);
-  console.log('You can practice:' + hobbies[index].name);
-}
-
-function performSelectedAction(input) {
-  let optionDetails = input.split(":")
-  let option = optionDetails[0]
-  let hobbyDetails = optionDetails[1]
-  switch (Number(option)) {
-    case 1:
-      handleOption1(hobbyDetails)
-      break
-    case 2:
-      handleOption2(hobbyDetails)
-      break
-    case 3:
-      handleOption3()
-      break
-    case 4:
-      handleOption4()
-      break
-    case 5:
-      handleOption5()
-      break
-    case 6:
-      console.log('Thanks for your question. Come back again')
-      break
-    default:
-      console.log('Choose option 1-5')
-  }
+  addBotEntry('You can practice:' + hobbies[index].name);
 }
