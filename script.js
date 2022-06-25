@@ -32,16 +32,6 @@ function addBotEntry(input) {
   messagesContainer.appendChild(botMessageDiv);
 }
 
-// function talkAboutHobbies() {
-//   let option
-//   do {
-//     printMenu()
-//     console.log('Choose option: ')
-//     option = scanner.questionInt()
-//     performSelectedAction(option)
-//   } while (option != 5)
-// }
-
 function getMenuString() {
   let menu = 'Hi there, I am your assistant. How can I help you?' +
     '\n1. Add hobby' +
