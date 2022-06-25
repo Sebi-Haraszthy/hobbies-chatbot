@@ -64,10 +64,10 @@ function performSelectedAction(input) {
       handleOption5()
       break
     case 6:
-      console.log('Thanks for your questions. Come back again')
+      addBotEntry('Thanks for your questions. Come back again')
       break
     default:
-      console.log('Choose option 1-5')
+      addBotEntry('Choose option 1-6')
   }
 }
 
@@ -90,7 +90,7 @@ function addHobby(hobby) {
 
 function handleOption2(hobbyName) {
   let price = getHobbyPrice(hobbyName);
-  addBotEntry('Price is: ' + price);
+  addBotEntry('Price for hobby ' + hobbyName + ' is: ' + price);
 }
 
 function getHobbyPrice(hobbyName) {
@@ -110,7 +110,7 @@ function handleOption3(input) {
       index = i;
     }
   }
-  addBotEntry('The cheapest hobby is: ' + hobbies[index].name + ' ' + hobbies[index].price);
+  addBotEntry('The cheapest hobby is: ' + hobbies[index].name + ': ' + hobbies[index].price);
 }
 
 function handleOption4(hobbyName) {
@@ -129,5 +129,5 @@ function handleOption4(hobbyName) {
 
 function handleOption5() {
   let index = Math.floor(Math.random() * hobbies.length);
-  addBotEntry('You can practice:' + hobbies[index].name);
+  addBotEntry('You can practice: ' + hobbies[index].name);
 }
