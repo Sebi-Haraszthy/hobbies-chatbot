@@ -124,7 +124,6 @@ function handleOption4(hobbyName) {
     hobbies[i] = hobbies[i + 1];
   }
   hobbies.length--;
-  hobbyNumber--;
   addBotEntry(JSON.stringify(hobbies));
 }
 
